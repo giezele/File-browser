@@ -86,7 +86,6 @@
             <input type="submit" value="Create new directory" id="create_btn" class="create_btn">
             
         </form>
-
     </div>
     <div>
     <p class="log_out">Click here to <a href = "index.php?action=logout"> logout.</p>

@@ -102,7 +102,7 @@ table.redTable tfoot .links a{
 .btn_login{
   margin-top: 1em;
 }
-.log_div{
+.log_div, .log_input {
   display: flex;
   flex-flow: column;
   justify-content: center;
