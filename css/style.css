@@ -2,13 +2,18 @@
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
+h1{
+  color: #A40808;
+  text-align: center;
+}
 h2 {
   color: #A40808;
 }
+
 table.redTable {
   border: 2px solid #A40808;
   background-color: #EEE7DB;
-  width: 100%;
+  width: 70%;
   text-align: center;
   border-collapse: collapse;
 }
@@ -59,12 +64,12 @@ table.redTable tfoot .links {
 table.redTable tfoot .links a{
   display: inline-block;
   background: #ffffff;
-  color: hsl(0, 91%, 34%);
+  color: rgb(166, 8, 8);
   padding: 2px 8px;
   border-radius: 5px;
   /* text-decoration: none; */
 }
-.btn_delete {
+.btn {
   padding: 0px 10px;
   color: hsl(0, 91%, 34%);
 }
@@ -73,7 +78,7 @@ table.redTable tfoot .links a{
   color: hsl(0, 91%, 34%);
   font-weight: bold;
 }
-.create_btn {
+.create_btn, .btn_login {
 	padding: .6em 1em;
 	border: 1px solid;
 	border-radius: .2em;
@@ -86,10 +91,24 @@ table.redTable tfoot .links a{
 	text-shadow: 0 -1px 1px rgb(0 0 0 / .3)
 }
 
-.create_btn:hover {
-	background-color:  hsl(0, 0%, 67%);
+.create_btn:hover, .btn_login:hover {
+  /* background-color:  hsl(0, 0%, 67%); */
+  background-color: hsl(10, 73%, 85%);
 }
 
-.create_btn:active {
+.create_btn:active, .btn_login:active {
 	box-shadow: 0 1px .2em black inset;
+}
+.btn_login{
+  margin-top: 1em;
+}
+.log_div{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+.log_out{
+  padding: 2em;
+  text-align: center;
 }
