@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+h2 {
+  color: #A40808;
+}
+table.redTable {
+  border: 2px solid #A40808;
+  background-color: #EEE7DB;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+table.redTable td, table.redTable th {
+  border: 1px solid #AAAAAA;
+  padding: 3px 2px;
+}
+table.redTable tbody td {
+  font-size: 15px;
+}
+table.redTable a {
+  font-size: 15px;
+  text-decoration: none;
+  color: inherit;
+}
+table.redTable tr:nth-child(even) {
+  background: #F5C8BF;
+}
+table.redTable tr:hover {
+  background: #AAAAAA;
+}
+table.redTable thead {
+  background: #A40808;
+}
+table.redTable thead th {
+  font-size: 19px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  border-left: 2px solid #A40808;
+}
+table.redTable thead th:first-child {
+  border-left: none;
+}
+
+table.redTable tfoot {
+  font-size: 13px;
+  font-weight: bold;
+  color: #FFFFFF;
+  background: #A40808;
+}
+table.redTable tfoot td {
+  font-size: 13px;
+}
+table.redTable tfoot .links {
+  text-align: right;
+}
+table.redTable tfoot .links a{
+  display: inline-block;
+  background: #ffffff;
+  color: hsl(0, 91%, 34%);
+  padding: 2px 8px;
+  border-radius: 5px;
+  /* text-decoration: none; */
+}
+.btn_delete {
+  padding: 0px 10px;
+  color: hsl(0, 91%, 34%);
+}
+.newDirDiv {
+  margin-top: 2em;
+  color: hsl(0, 91%, 34%);
+  font-weight: bold;
+}
+.create_btn {
+	padding: .6em 1em;
+	border: 1px solid;
+	border-radius: .2em;
+	color:#ffffff;;
+	font: 600 100%/1 sans-serif;
+  cursor: pointer;
+  border: 1px solid rgb(0 0 0 / .1);
+	background: linear-gradient(hsl(0 0% 100% / .3), transparent)  hsl(0, 91%, 34%);
+	box-shadow: 0 1px hsl(0 0% 100% / .8) inset, 0 .1em .1em -.1em rgb(0 0 0 / .2);
+	text-shadow: 0 -1px 1px rgb(0 0 0 / .3)
+}
+
+.create_btn:hover {
+	background-color:  hsl(0, 0%, 67%);
+}
+
+.create_btn:active {
+	box-shadow: 0 1px .2em black inset;
+}
