@@ -9,6 +9,7 @@
 </head>
 <body>
 <?php 
+    require_once 'helpers.php';
     session_start();
     // logout logic
     if(isset($_GET['action']) and $_GET['action'] == 'logout'){
@@ -39,7 +40,6 @@
 
     if($_SESSION['logged_in'] == true){
         print('<h2>You are logged in!</h2>');
-        //nuo cia
         $path = "." . $_GET['path'];
 
         echo('<h2>Directory contents: ' . ($path) . '</h2>');
@@ -146,16 +146,19 @@
         </form>
     </div>
     <div>
-
-    <div class="uploadDiv">
+        
+    <!-- file uploading form -->
+    <div class="newDirDiv">
     <form action="" method="POST" enctype="multipart/form-data">
-        <input type="file" name="file" class="create_btn">
-        <br>
-        <button type="submit" name="upload" class="create_btn">Upload file</button>
+        <input type="file" name="fileToUpload" id="img" style="display:none;"/>
+        <button class="create_btn" type="button">
+        <label for="img">Choose file to upload</label>
+        </button>
+        <button class="create_btn" type="submit">Upload file</button>
     </form>
     </div>
     <?php
-           //iki cia
+           
 
         //logout div
     echo('<h4 class="log_out">Click here to <a href = "index.php?action=logout"> logout.</h4>');     
@@ -177,8 +180,7 @@
     }
 ?>
 <div>
-    <!-- //pataisyti logout ahrefa kaip is komentaro -->
-    <!-- <p class="log_out">Click here to <a href = "index.php?action=logout"> logout.</p> -->
+    
 
 </div> 
 </body>
