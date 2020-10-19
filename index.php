@@ -49,27 +49,32 @@
                 mkdir($path . "/" . ($_POST['newDir']));
             }
         }
+
+        // upload file logic 
+        if(isset($_POST['upload'])) {
+            $file_name = $_FILES['file']['name'];
+            $file_size = $_FILES['file']['size'];
+            $file_tmp = $_FILES['file']['tmp_name'];
+            $file_type = $_FILES['file']['type'];
+            $file_store = ($path . "/") . $file_name;
+            move_uploaded_file($file_tmp, $file_store);  
+        }
     
-        // deleting file
-        // if (array_key_exists('file', $_GET)) {
-        //     unlink($path . "/" . $_GET['file']);
-        // }
-
-        // if (is_file($path . "/" . $_GET['file'])){
-        //         unlink($path . "/" . $_GET['file']);
-        //     }
-
+        // deleting and downloading file
+       
         if (array_key_exists('action', $_GET)) {    
             if (array_key_exists('file', $_GET)) {
                     $file = $_GET['path'] . "/" . $_GET['file'];
                 if ($_GET['action'] == 'delete') {
                     unlink($path . "/" . $_GET['file']);
-                } elseif ($_GET['action'] == 'download') {
+                } elseif ($_GET['action'] == 'download') {     
                     $fileDown = str_replace("&nbsp;", " ", htmlentities($file, null, 'utf-8'));
+                    print_r($fileDown);
+                    print_r($file);
                     ob_clean();
                     ob_flush();
                     header('Content-Description: File Transfer');
-                    header('Content-Type: application/pdf');
+                    header('Content-Type: application/png');
                     header('Content-Disposition: attachment; filename=' . basename($fileDown));
                     header('Content-Transfer-Encoding: binary');
                     header('Expires: 0');
@@ -81,13 +86,6 @@
                 }
             }
         }
-        // if(isset($_GET['delete'])){
-        //     $delurl=($path . "/" . $_GET['delete']);
-        //     unlink($delurl);
-        // }
-        // print_r($_GET);
-       
-        
     
         // printing table
         $dir_contents = scandir($path);
@@ -148,6 +146,14 @@
         </form>
     </div>
     <div>
+
+    <div class="uploadDiv">
+    <form action="" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" class="create_btn">
+        <br>
+        <button type="submit" name="upload" class="create_btn">Upload file</button>
+    </form>
+    </div>
     <?php
            //iki cia
 
