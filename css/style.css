@@ -6,7 +6,7 @@ h1{
   color: #A40808;
   text-align: center;
 }
-h2 {
+h2, h4 {
   color: #A40808;
 }
 
@@ -109,6 +109,8 @@ table.redTable tfoot .links a{
   align-items: center;
 }
 .log_out{
-  padding: 2em;
-  text-align: center;
+  padding: 1em 0;
+  color: #A40808;
+ 
+  
 }
