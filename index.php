@@ -53,19 +53,36 @@
 
         // upload file logic 
         if(isset($_POST['upload'])) {
+            $errors= array();
             $file_name = $_FILES['file']['name'];
             $file_size = $_FILES['file']['size'];
             $file_tmp = $_FILES['file']['tmp_name'];
             $file_type = $_FILES['file']['type'];
             $file_store = ($path . "/") . $file_name;
-            move_uploaded_file($file_tmp, $file_store);  
-        }
+            // move_uploaded_file($file_tmp, $file_store);
+            // check extension (and only permit jpegs, jpgs and pngs)
+            $file_ext = strtolower(end(explode('.',$_FILES['file']['name'])));
+            $extensions = array("jpeg","jpg","png");
+            if(in_array($file_ext,$extensions)=== false){
+                $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+            }
+            if($file_size > 2097152) {
+                $errors[]='File size must be > 2 MB';
+            }
+            if(empty($errors)==true) {
+                move_uploaded_file($file_tmp, $file_store);
+                echo "Success";
+            }else{
+                print_r($errors);
+            }  
+        } 
     
         // deleting and downloading file
        
         if (array_key_exists('action', $_GET)) {    
             if (array_key_exists('file', $_GET)) {
                 $file = "./" . $_GET['path'] . "./" . $_GET['file'];
+                // print_r($file);
                 if ($_GET['action'] == 'delete') {
                     unlink($path . "/" . $_GET['file']);
                 } elseif ($_GET['action'] == 'download') {     
