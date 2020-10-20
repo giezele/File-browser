@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOG IN to File Browser</title>
-    <link rel="stylesheet" type="text/css" href="./css/normalize.css>"/>
-    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
 </head>
 <body>
 <?php 
@@ -64,7 +65,7 @@
        
         if (array_key_exists('action', $_GET)) {    
             if (array_key_exists('file', $_GET)) {
-                    $file = $_GET['path'] . "/" . $_GET['file'];
+                $file = "./" . $_GET['path'] . "./" . $_GET['file'];
                 if ($_GET['action'] == 'delete') {
                     unlink($path . "/" . $_GET['file']);
                 } elseif ($_GET['action'] == 'download') {     
@@ -74,7 +75,7 @@
                     ob_clean();
                     ob_flush();
                     header('Content-Description: File Transfer');
-                    header('Content-Type: application/png');
+                    header('Content-Type: application/pdf');
                     header('Content-Disposition: attachment; filename=' . basename($fileDown));
                     header('Content-Transfer-Encoding: binary');
                     header('Expires: 0');
@@ -83,6 +84,7 @@
                     header('Content-Length: ' . filesize($fileDown));
                     ob_end_flush();
                     readfile($fileDown);
+                    exit;
                 }
             }
         }
@@ -150,11 +152,8 @@
     <!-- file uploading form -->
     <div class="newDirDiv">
     <form action="" method="POST" enctype="multipart/form-data">
-        <input type="file" name="fileToUpload" id="img" style="display:none;"/>
-        <button class="create_btn" type="button">
-        <label for="img">Choose file to upload</label>
-        </button>
-        <button class="create_btn" type="submit">Upload file</button>
+        <input type="file" name="file" id="fileInput" class="create_btn">
+        <button type="submit" name="upload" class="create_btn">Upload file</button>
     </form>
     </div>
     <?php
